@@ -246,6 +246,9 @@ function main() {
         deleteStates(toDelete, function () {
             // create new or modified states
             syncObjects(function () {
+            	// subscribe on changes
+            	adapter.subscribeStates('*');
+            	
                 for (var i = 0; i < adapter.config.devices.length; i++) {
                     mysdevs.push(adapter.config.devices[i].name);
                 }
